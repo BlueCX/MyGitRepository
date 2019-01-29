@@ -1,1 +1,1 @@
-No content.
+Learn how to use git.

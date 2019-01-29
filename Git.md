@@ -275,11 +275,37 @@ $ git branch dev
 $ git checkout dev
 ```
 
+##### 切换远程分支
+
+```sh
+$ git branch -a #-a 表示查看所有分支 包括了远程和本地的  如果只看远程的  -r就可以
+ * master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/dev
+  remotes/origin/master
+```
+
+如果我想切换到远程dev分支
+
+```sh
+$ git checkout -b dev origin/dev   
+ #作用是checkout远程的dev分支，在本地起名为dev分支，并切换到本地的dev分支
+Switched to a new branch 'dev'
+M       Git.md
+Branch 'dev' set up to track remote branch 'dev' from 'origin'.
+
+```
+
 ##### 删除分支
 
 ```shell
-$ git branch -d 需要删除的分支
+$ git branch -d 需要删除的分支 #注意不能删除你当前所在的分支
 Deleted branch 需要删除的分支 (3a0874c).
+#==================================================================
+#删除远程分支
+$ git push origin :dev
+To github.com:BlueCX/MyGitRepository.git
+ - [deleted]         dev
 ```
 
 ##### 分支的合并
@@ -372,3 +398,11 @@ $ git branch --merged
 ```sh
 $ git push origin dev  #origin是Git上默认远程仓库名字
 ```
+**生成 SSH公钥**
+
+默认在C:\Users\\[你的用户名]\\.ssh下会生成 id_rsa.pub 文件,  给管理员文件或者去Git服务器配置sshKey,  这样省去了每次都要验证身份的麻烦.
+
+```sh
+$ ssh-keygen
+```
+
